@@ -3,9 +3,9 @@ import { COLORS } from '../../constants/theme';
 
 const styles = StyleSheet.create({
   container: {
-    padding: 26,
+    paddingHorizontal: 26,
     flex: 1,
-    justifyContent: 'space-between',
+    justifyContent: 'space-around',
     backgroundColor: COLORS.white
   },
   headerText: {
@@ -19,6 +19,19 @@ const styles = StyleSheet.create({
     borderColor: COLORS.textInputBorderColor,
     padding: 16,
     marginVertical: 4
+  },
+  signUpDescription: {
+    fontSize: 14,
+    lineHeight: 22,
+    textAlign: 'center'
+  },
+  forgotPasswordText: {
+    fontSize: 14,
+    lineHeight: 22,
+    textAlign: 'center',
+    fontWeight: '600',
+    marginVertical: 8,
+    alignSelf: 'flex-end'
   }
 });
 
