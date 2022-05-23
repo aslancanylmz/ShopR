@@ -8,17 +8,12 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     backgroundColor: COLORS.white
   },
-  headerText: {
-    fontSize: 16,
-    textAlign: 'center',
-    fontWeight: '700'
-  },
   input: {
     borderWidth: 1,
     borderRadius: 2,
     borderColor: COLORS.textInputBorderColor,
-    padding: 16,
-    marginVertical: 4
+    padding: 12,
+    marginBottom: 8
   }
 });
 
