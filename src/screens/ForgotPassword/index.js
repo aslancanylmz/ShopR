@@ -1,11 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { TextInput, View, Text } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import auth from '@react-native-firebase/auth';
 import ButtonGroup from '../../components/ButtonGroup';
 import styles from './styles';
 
 export default function ForgotPassword() {
-  const navigation = useNavigation();
+  const [email, setEmail] = useState(null);
+  const [requesting, setRequesting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(null);
+  const [infoText, setInfoText] = useState(null);
+
+  const sendPasswordReset = email => {
+    setRequesting(true);
+    setInfoText(null);
+    setErrorMessage(null);
+    auth()
+      .sendPasswordResetEmail(email)
+      .then(function () {
+        setRequesting(false);
+        setErrorMessage(null);
+        setInfoText('Mail adresinize sıfırlama maili gönderilmiştir.');
+      })
+      .catch(function (error) {
+        setRequesting(false);
+        setErrorMessage(error.message);
+        setInfoText(null);
+      });
+  };
+  //const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <View>
@@ -13,9 +35,19 @@ export default function ForgotPassword() {
           Şifrenizi tekrar almak için üye olurken kullandığınız e-posta adresini giriniz.Şifreniz e-posta adresine
           gönderilecektir.
         </Text>
-        <TextInput placeholder={'Kayıtlı E-posta'} style={styles.input}></TextInput>
+        <TextInput
+          onChangeText={email => setEmail(email)}
+          placeholder={'Kayıtlı E-posta'}
+          style={errorMessage ? styles.invalidInput : styles.input}
+        ></TextInput>
+        {errorMessage && <Text style={styles.invalidText}>{errorMessage}</Text>}
+        {infoText && <Text style={styles.successText}>{infoText}</Text>}
       </View>
-      <ButtonGroup primaryButtonText={'GÖNDER'} primaryButtonPress={() => navigation.navigate('SignInScreen')}></ButtonGroup>
+      <ButtonGroup
+        requesting={requesting}
+        primaryButtonText={'GÖNDER'}
+        primaryButtonPress={() => sendPasswordReset(email)}
+      ></ButtonGroup>
     </View>
   );
 }

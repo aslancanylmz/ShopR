@@ -19,6 +19,25 @@ const styles = StyleSheet.create({
     lineHeight: 22,
     textAlign: 'left',
     marginVertical: 12
+  },
+  invalidInput: {
+    borderWidth: 1,
+    borderRadius: 2,
+    borderColor: COLORS.invalidColor,
+    padding: 12,
+    marginBottom: 2
+  },
+  invalidText: {
+    color: COLORS.invalidColor,
+    textAlign: 'left',
+    fontSize: 12,
+    marginBottom: 12
+  },
+  successText: {
+    color: COLORS.successColor,
+    textAlign: 'left',
+    fontSize: 12,
+    marginBottom: 12
   }
 });
 

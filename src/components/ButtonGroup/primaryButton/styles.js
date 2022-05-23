@@ -18,11 +18,11 @@ const styles = StyleSheet.create({
     borderRadius: 2
   },
   text: {
-    fontSize: 14,
-    lineHeight: 22,
+    fontSize: 17,
     includeFontPadding: false,
     color: COLORS.white,
-    textAlign: 'center'
+    textAlign: 'center',
+    fontWeight: '500'
   }
 });
 
