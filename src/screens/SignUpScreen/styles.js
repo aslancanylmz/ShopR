@@ -14,6 +14,18 @@ const styles = StyleSheet.create({
     borderColor: COLORS.textInputBorderColor,
     padding: 12,
     marginBottom: 8
+  },
+  invalidInput: {
+    borderWidth: 1,
+    borderRadius: 2,
+    borderColor: COLORS.invalidColor,
+    padding: 12,
+    marginBottom: 8
+  },
+  invalidPasswordText: {
+    color: COLORS.invalidColor,
+    textAlign: 'left',
+    fontSize: 12
   }
 });
 
