@@ -1,15 +1,22 @@
 import React, { useState } from 'react';
 import { KeyboardAvoidingView, Platform, Text, TextInput, View } from 'react-native';
-import auth from '@react-native-firebase/auth';
 import { useNavigation } from '@react-navigation/native';
+import auth from '@react-native-firebase/auth';
 import ButtonGroup from '../../components/ButtonGroup';
 import styles from './styles';
+import InfoModal from '../../components/infoModal';
 
 export default function SignUpScreen() {
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
   const [confirmPassword, setConfirmPassword] = useState(null);
   const [validConfirmPassword, setValidConfirmPassword] = useState(true);
+  const [errorMessage, setErrorMessage] = useState(null);
+  const [requesting, setRequesting] = useState(false);
+  const [successSignUpModalVisible, setSuccessSignUpModalVisible] = useState(false);
+  const [user, setUser] = useState(null);
+
+  const navigation = useNavigation();
 
   const validationConfirmPassword = (password, confirmPassword) => {
     if (password === confirmPassword) {
@@ -22,37 +29,44 @@ export default function SignUpScreen() {
   };
 
   const signUpWithEmail = (email, password) => {
+    setRequesting(true);
     if (validationConfirmPassword(password, confirmPassword)) {
       auth()
         .createUserWithEmailAndPassword(email, password)
-        .then(() => {
-          console.log('User account created & signed in!');
+        .then(user => {
+          setUser(user);
+          setRequesting(false);
+          setSuccessSignUpModalVisible(true);
         })
         .catch(error => {
+          setRequesting(false);
           if (error.code === 'auth/email-already-in-use') {
-            console.log('That email address is already in use!');
+            setErrorMessage('Bu email adresi zaten kullanılmaktadır.');
           }
-
           if (error.code === 'auth/invalid-email') {
-            console.log('That email address is invalid!');
+            setErrorMessage('Geçersiz email adresi girdiniz.');
           }
-
-          console.error(error);
         });
-    } else console.log('Şifreler aynı olmalı');
+    } else {
+      setRequesting(false);
+      setErrorMessage('Girdiğiniz şifreler eşleşmedi.Tekrar deneyin.');
+    }
   };
 
-  //const navigation = useNavigation();
   const isIos = Platform.OS === 'ios';
   return (
     <KeyboardAvoidingView keyboardVerticalOffset={100} behavior={isIos && 'padding'} style={styles.container}>
       <View>
-        <TextInput onChangeText={text => setEmail(text.toString())} placeholder={'E-Posta'} style={styles.input}></TextInput>
+        <TextInput
+          onChangeText={text => setEmail(text.toString())}
+          placeholder={'E-Posta'}
+          style={errorMessage && validConfirmPassword ? styles.invalidInput : styles.input}
+        ></TextInput>
         <TextInput
           onChangeText={text => setPassword(text.toString())}
           placeholder={'Şifre'}
           secureTextEntry={true}
-          style={styles.input}
+          style={validConfirmPassword ? styles.input : styles.invalidInput}
         ></TextInput>
         <TextInput
           onChangeText={text => setConfirmPassword(text.toString())}
@@ -60,9 +74,18 @@ export default function SignUpScreen() {
           secureTextEntry={true}
           style={validConfirmPassword ? styles.input : styles.invalidInput}
         ></TextInput>
-        {!validConfirmPassword && <Text style={styles.invalidPasswordText}>Girdiğiniz şifreler eşleşmedi. Tekrar deneyin.</Text>}
+        {(!validConfirmPassword || errorMessage) && <Text style={styles.invalidPasswordText}>{errorMessage}</Text>}
       </View>
-      <ButtonGroup primaryButtonText={'Üye Ol'} primaryButtonPress={() => signUpWithEmail(email, password)}></ButtonGroup>
+      <ButtonGroup
+        requesting={requesting}
+        primaryButtonText={'Üye Ol'}
+        primaryButtonPress={() => signUpWithEmail(email, password)}
+      ></ButtonGroup>
+      <InfoModal
+        visible={successSignUpModalVisible}
+        description={`${user?.user.email} email adresi ile üyeliğiniz \nbaşarıyla  oluşturulmuştur.`}
+        okButtonPress={() => navigation.navigate('HomeScreen', { userId: user.user.uid })}
+      ></InfoModal>
     </KeyboardAvoidingView>
   );
 }
