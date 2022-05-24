@@ -27,6 +27,19 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     marginVertical: 8,
     alignSelf: 'flex-end'
+  },
+  invalidInput: {
+    borderWidth: 1,
+    borderRadius: 2,
+    borderColor: COLORS.invalidColor,
+    padding: 12,
+    marginBottom: 2
+  },
+  invalidText: {
+    color: COLORS.invalidColor,
+    textAlign: 'left',
+    fontSize: 12,
+    marginBottom: 12
   }
 });
 
