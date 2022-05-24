@@ -36,8 +36,7 @@ export default function SignInScreen() {
         if (error.code === 'auth/invalid-email') {
           setErrorPassword(null);
           setErrorMessage('Geçersiz email adresi girdiniz');
-        }
-        setErrorMessage(error.code);
+        } else setErrorMessage(error.code);
       });
   };
   return (
@@ -48,14 +47,14 @@ export default function SignInScreen() {
           placeholder={'E-Posta'}
           style={errorMessage || errorPassword ? styles.invalidInput : styles.input}
         ></TextInput>
-        {errorMessage && !errorPassword && <Text style={styles.invalidText}>{errorMessage}</Text>}
         <TextInput
           onChangeText={text => setPassword(text.toString())}
           placeholder={'Şifre'}
           secureTextEntry={true}
           style={errorPassword ? styles.invalidInput : styles.input}
         ></TextInput>
-        {errorPassword && <Text style={styles.invalidText}>{errorPassword ?? errorMessage}</Text>}
+        {!errorMessage && !errorPassword && <View style={styles.seperator}></View>}
+        {(errorMessage || errorPassword) && <Text style={styles.invalidText}>{errorPassword ?? errorMessage}</Text>}
         <Text onPress={() => navigation.navigate('ForgotPasswordScreen')} style={styles.forgotPasswordText}>
           Şifremi Unuttum
         </Text>

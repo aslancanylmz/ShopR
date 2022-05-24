@@ -33,13 +33,16 @@ const styles = StyleSheet.create({
     borderRadius: 2,
     borderColor: COLORS.invalidColor,
     padding: 12,
-    marginBottom: 2
+    marginBottom: 8
   },
   invalidText: {
     color: COLORS.invalidColor,
     textAlign: 'left',
     fontSize: 12,
-    marginBottom: 12
+    lineHeight: 16
+  },
+  seperator: {
+    height: 16
   }
 });
 

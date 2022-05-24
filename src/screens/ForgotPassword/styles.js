@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     borderRadius: 2,
     borderColor: COLORS.textInputBorderColor,
     padding: 12,
-    marginBottom: 8
+    marginBottom: 2
   },
   descriptionText: {
     fontSize: 14,
@@ -31,13 +31,18 @@ const styles = StyleSheet.create({
     color: COLORS.invalidColor,
     textAlign: 'left',
     fontSize: 12,
-    marginBottom: 12
+    lineHeight: 16,
+    marginBottom: 8
   },
   successText: {
     color: COLORS.successColor,
     textAlign: 'left',
     fontSize: 12,
-    marginBottom: 12
+    lineHeight: 16,
+    marginBottom: 8
+  },
+  seperator: {
+    height: 24
   }
 });
 

@@ -21,13 +21,13 @@ export default function ForgotPassword() {
         setErrorMessage(null);
         setInfoText('Mail adresinize sıfırlama maili gönderilmiştir.');
       })
-      .catch(function (error) {
+      .catch(function () {
         setRequesting(false);
-        setErrorMessage(error.message);
+        setErrorMessage('Geçersiz veya kayıtlı olmayan bir mail adresi girdiniz.');
         setInfoText(null);
       });
   };
-  //const navigation = useNavigation();
+
   return (
     <View style={styles.container}>
       <View>
@@ -40,6 +40,7 @@ export default function ForgotPassword() {
           placeholder={'Kayıtlı E-posta'}
           style={errorMessage ? styles.invalidInput : styles.input}
         ></TextInput>
+        {!errorMessage && !infoText && <View style={styles.seperator}></View>}
         {errorMessage && <Text style={styles.invalidText}>{errorMessage}</Text>}
         {infoText && <Text style={styles.successText}>{infoText}</Text>}
       </View>
