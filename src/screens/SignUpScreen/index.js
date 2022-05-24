@@ -5,6 +5,8 @@ import auth from '@react-native-firebase/auth';
 import ButtonGroup from '../../components/ButtonGroup';
 import styles from './styles';
 import InfoModal from '../../components/infoModal';
+import { useDispatch } from 'react-redux';
+import { setUserInfo } from '../../redux/actions/user';
 
 export default function SignUpScreen() {
   const [email, setEmail] = useState(null);
@@ -17,6 +19,7 @@ export default function SignUpScreen() {
   const [user, setUser] = useState(null);
 
   const navigation = useNavigation();
+  const dispatch = useDispatch();
 
   const validationConfirmPassword = (password, confirmPassword) => {
     if (password === confirmPassword) {
@@ -84,7 +87,7 @@ export default function SignUpScreen() {
       <InfoModal
         visible={successSignUpModalVisible}
         description={`${user?.user.email} email adresi ile üyeliğiniz \nbaşarıyla oluşturulmuştur.\nAnasayfaya yönlendiriliyorsunuz.`}
-        okButtonPress={() => navigation.navigate('HomeScreen', { userId: user.user.uid })}
+        okButtonPress={() => dispatch(setUserInfo(user))}
       ></InfoModal>
     </KeyboardAvoidingView>
   );

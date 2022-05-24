@@ -1,11 +1,10 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 
-export default function HomeScreen({ route }) {
-  const { userId } = route.params;
+export default function Cart() {
   return (
     <View>
-      <Text>{userId}</Text>
+      <Text>CART</Text>
     </View>
   );
 }
