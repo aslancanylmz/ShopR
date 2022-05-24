@@ -83,7 +83,7 @@ export default function SignUpScreen() {
       ></ButtonGroup>
       <InfoModal
         visible={successSignUpModalVisible}
-        description={`${user?.user.email} email adresi ile üyeliğiniz \nbaşarıyla  oluşturulmuştur.`}
+        description={`${user?.user.email} email adresi ile üyeliğiniz \nbaşarıyla oluşturulmuştur.\nAnasayfaya yönlendiriliyorsunuz.`}
         okButtonPress={() => navigation.navigate('HomeScreen', { userId: user.user.uid })}
       ></InfoModal>
     </KeyboardAvoidingView>
