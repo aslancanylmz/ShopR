@@ -4,6 +4,8 @@ import { Text, TextInput, View, Platform, KeyboardAvoidingView } from 'react-nat
 import auth from '@react-native-firebase/auth';
 import ButtonGroup from '../../components/ButtonGroup';
 import styles from './styles';
+import { useDispatch } from 'react-redux';
+import { setUserInfo } from '../../redux/actions/user';
 
 export default function SignInScreen() {
   const navigation = useNavigation();
@@ -13,6 +15,8 @@ export default function SignInScreen() {
   const [requesting, setRequesting] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
   const [errorPassword, setErrorPassword] = useState(null);
+
+  const dispatch = useDispatch();
 
   const signInWithEmail = (email, password) => {
     setRequesting(true);
@@ -24,7 +28,7 @@ export default function SignInScreen() {
         setErrorMessage(null);
         setErrorPassword(null);
         setRequesting(false);
-        navigation.navigate('HomeScreen', { userId: user.user.uid });
+        dispatch(setUserInfo(user));
       })
       .catch(error => {
         setRequesting(false);
