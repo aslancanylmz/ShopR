@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "763335438664",
+    "project_id": "shopr-421a8",
+    "storage_bucket": "shopr-421a8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:763335438664:android:4be10da6cb0980d887437d",
+        "android_client_info": {
+          "package_name": "com.trendyolcase.shopr"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "763335438664-hduk80r038c7jcj7vbhgj88covt765ur.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPFGWcKg0TZNWIkSnuHPZuG3ROERn1rnk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "763335438664-hduk80r038c7jcj7vbhgj88covt765ur.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "763335438664-ciqhdc25t6kmkjrc7asflfaie83gqtoq.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.case.shopr"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

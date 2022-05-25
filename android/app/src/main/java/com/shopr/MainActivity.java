@@ -1,4 +1,4 @@
-package com.shopr;
+package com.trendyolcase.shopr;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;

@@ -1,4 +1,4 @@
-package com.shopr.newarchitecture.modules;
+package com.trendyolcase.shopr.newarchitecture.modules;
 
 import com.facebook.jni.HybridData;
 import com.facebook.react.ReactPackage;

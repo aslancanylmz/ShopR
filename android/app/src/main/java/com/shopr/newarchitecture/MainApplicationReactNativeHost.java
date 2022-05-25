@@ -1,4 +1,4 @@
-package com.shopr.newarchitecture;
+package com.trendyolcase.shopr.newarchitecture;
 
 import android.app.Application;
 import androidx.annotation.NonNull;
@@ -19,9 +19,9 @@ import com.facebook.react.fabric.CoreComponentsRegistry;
 import com.facebook.react.fabric.EmptyReactNativeConfig;
 import com.facebook.react.fabric.FabricJSIModuleProvider;
 import com.facebook.react.uimanager.ViewManagerRegistry;
-import com.shopr.BuildConfig;
-import com.shopr.newarchitecture.components.MainComponentsRegistry;
-import com.shopr.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
+import com.trendyolcase.shopr.BuildConfig;
+import com.trendyolcase.shopr.newarchitecture.components.MainComponentsRegistry;
+import com.trendyolcase.shopr.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
 import java.util.ArrayList;
 import java.util.List;
 
