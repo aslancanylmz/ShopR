@@ -5,6 +5,7 @@ export const COLORS = {
   textInputBorderColor: '#B7B1B1',
   ocher: '#D2A670',
   trendyol: '#ff7f00',
+  secondaryTextColor: '#444',
   invalidColor: 'red',
   successColor: 'green'
 };

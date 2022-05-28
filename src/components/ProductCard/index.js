@@ -1,15 +1,18 @@
 import React from 'react';
-import { Pressable, Text } from 'react-native';
+import { Pressable, Text, View } from 'react-native';
 import { CustomImage } from '../CustomImage';
-import styles from '../CustomImage/styles';
+import styles from './styles';
 
-export default function ProductCard({ image, productWidth, productName, brandName, price }) {
+export default function ProductCard({ image, productWidth, productName, brandName, marketPrice, currencyPrice }) {
   return (
     <Pressable style={styles.container}>
-      <CustomImage image={image} customWidth={productWidth}></CustomImage>
-      <Text>{brandName}</Text>
-      <Text>{productName}</Text>
-      <Text>{price}</Text>
+      <CustomImage marginSize={8} image={image} customWidth={productWidth}></CustomImage>
+      <Text style={styles.brandNameText}>{brandName}</Text>
+      <Text style={styles.productNameText}>{productName}</Text>
+      <View style={styles.priceContainer}>
+        {marketPrice && <Text style={styles.marketPrice}>{marketPrice}</Text>}
+        <Text style={styles.currencyPrice}>{currencyPrice}</Text>
+      </View>
     </Pressable>
   );
 }

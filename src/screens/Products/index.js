@@ -1,8 +1,5 @@
 import React from 'react';
-import { FlatList, View } from 'react-native';
-import ProductCard from '../../components/ProductCard';
-import { productListEnums } from '../../constants/enums';
-import { SIZES } from '../../constants/theme';
+import HorizontalProductList from '../../components/HorizontalProductList';
 
 export default function Products() {
   const products = [
@@ -10,58 +7,54 @@ export default function Products() {
       image: 'https://cdn.arzum.com.tr/ar1127-freestick-sarjli-el-blender-seti-siyah-blender-seti-arzum-ar1127-4410-30-O.jpg',
       productName: 'Blender',
       brandName: 'Arzum',
-      price: '200 ₺'
+      marketPrice: '200 ₺',
+      currencyPrice: '120 ₺'
     },
     {
       image: 'https://cdn.arzum.com.tr/ar1127-freestick-sarjli-el-blender-seti-siyah-blender-seti-arzum-ar1127-4410-30-O.jpg',
       productName: 'Blender',
       brandName: 'Arzum',
-      price: '200 ₺'
+      currencyPrice: '200 ₺'
     },
     {
       image: 'https://cdn.arzum.com.tr/ar1127-freestick-sarjli-el-blender-seti-siyah-blender-seti-arzum-ar1127-4410-30-O.jpg',
       productName: 'Blender',
       brandName: 'Arzum',
-      price: '200 ₺'
+      currencyPrice: '200 ₺'
     },
     {
       image: 'https://cdn.arzum.com.tr/ar1127-freestick-sarjli-el-blender-seti-siyah-blender-seti-arzum-ar1127-4410-30-O.jpg',
       productName: 'Blender',
       brandName: 'Arzum',
-      price: '200 ₺'
+      marketPrice: '200 ₺',
+      currencyPrice: '120 ₺'
     },
     {
       image: 'https://cdn.arzum.com.tr/ar1127-freestick-sarjli-el-blender-seti-siyah-blender-seti-arzum-ar1127-4410-30-O.jpg',
       productName: 'Blender',
       brandName: 'Arzum',
-      price: '200 ₺'
+      currencyPrice: '200 ₺'
+    },
+    {
+      image: 'https://cdn.arzum.com.tr/ar1127-freestick-sarjli-el-blender-seti-siyah-blender-seti-arzum-ar1127-4410-30-O.jpg',
+      productName: 'Blender',
+      brandName: 'Arzum',
+      currencyPrice: '200 ₺'
+    },
+    {
+      image: 'https://cdn.arzum.com.tr/ar1127-freestick-sarjli-el-blender-seti-siyah-blender-seti-arzum-ar1127-4410-30-O.jpg',
+      productName: 'Blender',
+      brandName: 'Arzum',
+      marketPrice: '200 ₺',
+      currencyPrice: '120 ₺'
+    },
+    {
+      image: 'https://cdn.arzum.com.tr/ar1127-freestick-sarjli-el-blender-seti-siyah-blender-seti-arzum-ar1127-4410-30-O.jpg',
+      productName: 'Blender',
+      brandName: 'Arzum',
+      currencyPrice: '200 ₺'
     }
   ];
 
-  const { numberOfProductsInRow, separatorWidth } = productListEnums;
-  const productWidth = SIZES.screenWidth / numberOfProductsInRow - separatorWidth;
-  const renderProduct = ({ item }) => {
-    const { image, productName, brandName, price } = item;
-    return (
-      <ProductCard
-        image={image}
-        productWidth={productWidth}
-        productName={productName}
-        brandName={brandName}
-        price={price}
-      ></ProductCard>
-    );
-  };
-  const renderSeparator = () => {
-    return <View style={{ width: separatorWidth }}></View>;
-  };
-  return (
-    <FlatList
-      horizontal={true}
-      ItemSeparatorComponent={() => renderSeparator()}
-      data={products}
-      renderItem={item => renderProduct(item)}
-      showsHorizontalScrollIndicator={false}
-    ></FlatList>
-  );
+  return <HorizontalProductList title={'Kategoriler'} products={products}></HorizontalProductList>;
 }
