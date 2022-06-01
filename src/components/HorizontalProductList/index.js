@@ -4,19 +4,28 @@ import styles from './styles';
 import ProductCard from '../../components/ProductCard';
 import { productListEnums } from '../../constants/enums';
 import { SIZES } from '../../constants/theme';
+import { useEffect } from 'react';
+import { useState } from 'react';
+import { getProductList } from '../../services/API/api';
 
-export default function HorizontalProductList({ products, title }) {
+export default function HorizontalProductList({ category }) {
   const { numberOfProductsInRow, separatorWidth } = productListEnums;
   const productWidth = SIZES.screenWidth / numberOfProductsInRow - separatorWidth;
+  const [productList, setProductList] = useState([]);
+
+  useEffect(() => {
+    getProductList(setProductList, [category]);
+  }, []);
+
   const renderProduct = ({ item }) => {
-    const { image, productName, brandName, currencyPrice, marketPrice } = item;
+    const { imageList, productName, brandName, currentPrice, marketPrice } = item;
     return (
       <ProductCard
-        image={image}
+        image={imageList[0]}
         productWidth={productWidth}
         productName={productName}
         brandName={brandName}
-        currencyPrice={currencyPrice}
+        currentPrice={currentPrice}
         marketPrice={marketPrice}
       ></ProductCard>
     );
@@ -26,11 +35,11 @@ export default function HorizontalProductList({ products, title }) {
   };
   return (
     <View style={styles.contentContainer}>
-      {title && <Text style={styles.titleText}>{title}</Text>}
+      {category && <Text style={styles.titleText}>{category}</Text>}
       <FlatList
         horizontal={true}
         ItemSeparatorComponent={() => renderSeparator()}
-        data={products}
+        data={productList}
         renderItem={item => renderProduct(item)}
         showsHorizontalScrollIndicator={false}
       ></FlatList>

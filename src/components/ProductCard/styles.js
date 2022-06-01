@@ -10,6 +10,10 @@ export const styles = StyleSheet.create({
     width: 0,
     height: 0
   },
+  productImage: {
+    borderRadius: 8,
+    overflow: 'hidden'
+  },
   brandNameText: {
     fontSize: 12,
     color: COLORS.secondaryTextColor,

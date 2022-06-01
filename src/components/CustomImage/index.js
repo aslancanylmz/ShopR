@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Image, ActivityIndicator, TouchableOpacity, Pressable } from 'react-native';
+import { Image, ActivityIndicator, Pressable } from 'react-native';
 import FastImage from 'react-native-fast-image';
 import { COLORS, SIZES } from '../../constants/theme';
 import styles from './styles';
@@ -19,7 +19,7 @@ const CustomImage = props => {
 
   useEffect(() => {
     Image.getSize(image, (width, height) => {
-      const ratio = width / height;
+      const ratio = 1;
       if (customWidth && !customHeight) {
         setImageStyle({
           width: imageWidth,
@@ -51,7 +51,7 @@ const CustomImage = props => {
       <FastImage
         source={{ uri: image }}
         style={imageSizeLoading ? styles.imageStyleOnLoading : imageStyle}
-        resizeMode={FastImage.resizeMode.contain}
+        resizeMode={FastImage.resizeMode.cover}
         {...props}
       ></FastImage>
     </Pressable>
