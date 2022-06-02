@@ -54,7 +54,7 @@ export default function HorizontalProductList({ category }) {
         renderItem={item => renderProduct(item)}
         showsHorizontalScrollIndicator={false}
         ListFooterComponent={() => !isLastItem && renderFooter()}
-        ListFooterComponentStyle={styles.footerContainer}
+        ListFooterComponentStyle={!isLastItem && styles.footerContainer}
       ></FlatList>
     </View>
   );
