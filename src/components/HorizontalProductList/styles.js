@@ -14,7 +14,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flex: 1,
     marginHorizontal: 24
-  }
+  },
+  productShimmerContainer: {
+    flexDirection: 'row'
+  },
+  titleShimmer: { marginVertical: 12 },
+  productShimmer: { marginRight: 16 },
+
+  horizontalProductsShimmerContainer: { marginVertical: 16 }
 });
 
 export default styles;

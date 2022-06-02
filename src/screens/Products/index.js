@@ -3,6 +3,7 @@ import HorizontalProductList from '../../components/HorizontalProductList';
 import { FlatList } from 'react-native';
 import { useState, useEffect } from 'react';
 import { getCategoryList } from '../../services/API/api';
+import HorizontalProductShimmer from '../../components/HorizontalProductList/HorizontalProductShimmer';
 
 export default function Products() {
   const [categoryList, setCategoryList] = useState([]);
@@ -15,7 +16,23 @@ export default function Products() {
     return <HorizontalProductList category={item}></HorizontalProductList>;
   };
 
-  return <FlatList data={categoryList} renderItem={item => renderProductList(item)}></FlatList>;
+  const renderHorizontalProductShimmer = () => {
+    return (
+      <>
+        <HorizontalProductShimmer />
+        <HorizontalProductShimmer />
+        <HorizontalProductShimmer />
+        <HorizontalProductShimmer />
+      </>
+    );
+  };
+
+  return (
+    <FlatList
+      data={categoryList.length === 0 ? [1] : categoryList}
+      renderItem={item => (categoryList.length === 0 ? renderHorizontalProductShimmer() : renderProductList(item))}
+    ></FlatList>
+  );
 }
 
 {

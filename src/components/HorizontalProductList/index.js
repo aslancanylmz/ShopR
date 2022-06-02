@@ -1,5 +1,5 @@
 import React from 'react';
-import { FlatList, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { FlatList, Text, View } from 'react-native';
 import styles from './styles';
 import ProductCard from '../../components/ProductCard';
 import { productListEnums } from '../../constants/enums';
@@ -8,12 +8,13 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { getMoreProducts, getProductList } from '../../services/API/api';
 import { Icon, iconNames } from '../Icon';
+import HorizontalProductShimmer from './HorizontalProductShimmer';
 
 export default function HorizontalProductList({ category }) {
-  const { numberOfProductsInRow, separatorWidth } = productListEnums;
-  const productWidth = SIZES.screenWidth / numberOfProductsInRow - separatorWidth;
   const [productList, setProductList] = useState([]);
   const [isLastItem, setIsLastItem] = useState(false);
+  const { numberOfProductsInRow, separatorWidth } = productListEnums;
+  const productWidth = SIZES.screenWidth / numberOfProductsInRow - separatorWidth;
 
   useEffect(() => {
     getProductList(setProductList, [category]);
@@ -35,6 +36,7 @@ export default function HorizontalProductList({ category }) {
   const renderSeparator = () => {
     return <View style={{ width: separatorWidth }}></View>;
   };
+
   const renderFooter = () => {
     return (
       <Icon
@@ -50,8 +52,10 @@ export default function HorizontalProductList({ category }) {
         keyExtractor={(item, index) => String(index)}
         horizontal={true}
         ItemSeparatorComponent={() => renderSeparator()}
-        data={productList}
-        renderItem={item => renderProduct(item)}
+        data={productList.length === 0 ? [1] : productList}
+        renderItem={item =>
+          productList.length === 0 ? <HorizontalProductShimmer titleShimmerVisible={false} /> : renderProduct(item)
+        }
         showsHorizontalScrollIndicator={false}
         ListFooterComponent={() => !isLastItem && renderFooter()}
         ListFooterComponentStyle={!isLastItem && styles.footerContainer}
