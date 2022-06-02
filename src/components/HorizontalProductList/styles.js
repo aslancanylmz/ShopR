@@ -8,6 +8,12 @@ const styles = StyleSheet.create({
     fontSize: 20,
     marginVertical: 12,
     fontWeight: '800'
+  },
+  footerContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    flex: 1,
+    marginHorizontal: 24
   }
 });
 

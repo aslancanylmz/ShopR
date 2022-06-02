@@ -17,7 +17,7 @@ export const getProductList = (setProductList, categoryList) => {
   firestore()
     .collection('productList')
     .where('category', 'in', categoryList)
-    .orderBy('currentPrice')
+    .limit(3)
     .get()
     .then(querySnapshot => {
       let productList = [];
@@ -26,5 +26,25 @@ export const getProductList = (setProductList, categoryList) => {
         productList.push(data);
       });
       setProductList(productList);
+    });
+};
+
+export const getMoreProducts = (productList, setProductList, categoryList, setIsLastItem) => {
+  const lastProductName = productList[productList.length - 1].productName;
+  firestore()
+    .collection('productList')
+    .where('category', 'in', categoryList)
+    .orderBy('productName')
+    .limit(3)
+    .startAfter(lastProductName)
+    .get()
+    .then(querySnapshot => {
+      let tempProductList = [];
+      querySnapshot.forEach(snapshot => {
+        let data = snapshot.data();
+        tempProductList.push(data);
+      });
+      querySnapshot.docs.length < 3 && setIsLastItem(true);
+      setProductList([...productList, ...tempProductList]);
     });
 };
