@@ -7,7 +7,7 @@ import { TabNavigator } from './TabNavigator';
 const AppNavigation = () => {
   const user = useSelector(userInfo);
   {
-    return !user ? <AuthNavigation /> : <TabNavigator />;
+    return user ? <TabNavigator /> : <AuthNavigation />;
   }
 };
 

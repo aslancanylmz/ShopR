@@ -5,6 +5,7 @@ import Cart from '../screens/Cart';
 import Products from '../screens/Products';
 import { COLORS } from '../constants/theme';
 import { Icon, iconNames } from '../components/Icon';
+import HomeNavigation from './HomeNavigation';
 
 const Tab = createBottomTabNavigator();
 
@@ -12,20 +13,11 @@ export const TabNavigator = () => {
   return (
     <Tab.Navigator screenOptions={{ headerShown: false, tabBarShowLabel: false, tabBarActiveTintColor: COLORS.trendyol }}>
       <Tab.Screen
-        name='Home'
-        component={Cart}
+        name='HomeScreen'
+        component={HomeNavigation}
         options={{
           tabBarIcon: ({ focused }) => (
             <Icon iconName={iconNames.Home} color={focused ? COLORS.trendyol : COLORS.textInputBorderColor}></Icon>
-          )
-        }}
-      />
-      <Tab.Screen
-        name='Products'
-        component={Products}
-        options={{
-          tabBarIcon: ({ focused }) => (
-            <Icon iconName={iconNames.Profile} color={focused ? COLORS.trendyol : COLORS.textInputBorderColor}></Icon>
           )
         }}
       />

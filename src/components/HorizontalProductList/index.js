@@ -9,12 +9,15 @@ import { useState } from 'react';
 import { getMoreProducts, getProductList } from '../../services/API/api';
 import { Icon, iconNames } from '../Icon';
 import HorizontalProductShimmer from './HorizontalProductShimmer';
+import { useNavigation } from '@react-navigation/native';
 
 export default function HorizontalProductList({ category }) {
   const [productList, setProductList] = useState([]);
   const [isLastItem, setIsLastItem] = useState(false);
-  const { numberOfProductsInRow, separatorWidth } = productListEnums;
-  const productWidth = SIZES.screenWidth / numberOfProductsInRow - separatorWidth;
+  const { numberOfProductsInHorizontalList, separatorWidth } = productListEnums;
+  const productWidth = SIZES.screenWidth / numberOfProductsInHorizontalList - separatorWidth;
+
+  const navigation = useNavigation();
 
   useEffect(() => {
     getProductList(setProductList, [category]);
@@ -47,7 +50,11 @@ export default function HorizontalProductList({ category }) {
   };
   return (
     <View style={styles.contentContainer}>
-      {category && <Text style={styles.titleText}>{category}</Text>}
+      {category && (
+        <Text onPress={() => navigation.navigate('CategoryDetail', { title: category })} style={styles.titleText}>
+          {category}
+        </Text>
+      )}
       <FlatList
         keyExtractor={(item, index) => String(index)}
         horizontal={true}
