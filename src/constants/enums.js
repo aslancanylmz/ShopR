@@ -1,4 +1,5 @@
 export const productListEnums = {
-  numberOfProductsInRow: 2.5,
+  numberOfProductsInHorizontalList: 2.5,
+  numberOfProductsInRow: 2,
   separatorWidth: 16
 };

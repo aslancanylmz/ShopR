@@ -13,11 +13,11 @@ export const getCategoryList = setCategoryList => {
       setCategoryList(categoryList);
     });
 };
-export const getProductList = (setProductList, categoryList) => {
+export const getProductList = (setProductList, categoryList, setLoading, setFirstLoading) => {
   firestore()
     .collection('productList')
     .where('category', 'in', categoryList)
-    .limit(3)
+    .limit(10)
     .get()
     .then(querySnapshot => {
       let productList = [];
@@ -26,6 +26,8 @@ export const getProductList = (setProductList, categoryList) => {
         productList.push(data);
       });
       setProductList(productList);
+      setFirstLoading && setFirstLoading(false);
+      setLoading && setLoading(false);
     });
 };
 
@@ -35,7 +37,7 @@ export const getMoreProducts = (productList, setProductList, categoryList, setIs
     .collection('productList')
     .where('category', 'in', categoryList)
     .orderBy('productName')
-    .limit(3)
+    .limit(4)
     .startAfter(lastProductName)
     .get()
     .then(querySnapshot => {
@@ -44,7 +46,7 @@ export const getMoreProducts = (productList, setProductList, categoryList, setIs
         let data = snapshot.data();
         tempProductList.push(data);
       });
-      querySnapshot.docs.length < 3 && setIsLastItem(true);
+      querySnapshot.docs.length < 4 && setIsLastItem(true);
       setProductList([...productList, ...tempProductList]);
     });
 };
