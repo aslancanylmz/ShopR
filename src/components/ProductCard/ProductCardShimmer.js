@@ -2,14 +2,10 @@ import React from 'react';
 import { View } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import { createShimmerPlaceholder } from 'react-native-shimmer-placeholder';
-import { productListEnums } from '../../constants/enums';
-import { SIZES } from '../../constants/theme';
 import styles from './styles';
 
-const ProductCardShimmer = ({ style }) => {
+const ProductCardShimmer = ({ productWidth, style }) => {
   const ShimmerPlaceHolder = createShimmerPlaceholder(LinearGradient);
-  const { numberOfProductsInRow, separatorWidth } = productListEnums;
-  const productWidth = SIZES.screenWidth / numberOfProductsInRow - separatorWidth;
 
   return (
     <View style={[styles.container, style]}>
