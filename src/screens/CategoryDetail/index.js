@@ -25,7 +25,7 @@ export default function CategoryDetail({ route }) {
       <>
         {index % 2 === 1 && <View style={styles.horizontalSeparator}></View>}
         <ProductCard
-          image={imageList[0]}
+          images={imageList}
           productWidth={productWidth}
           productName={productName}
           brandName={brandName}
@@ -55,7 +55,7 @@ export default function CategoryDetail({ route }) {
       showsVerticalScrollIndicator={false}
       onEndReached={() => !isLastItem && getMoreProducts(productList, setProductList, [category], setIsLastItem)}
       ListFooterComponent={() => !isLastItem && <ActivityIndicator color={COLORS.trendyol} />}
-      ListFooterComponentStyle={styles.footerContainer}
+      ListFooterComponentStyle={!isLastItem && styles.footerContainer}
       refreshing={loading}
       onRefresh={() => onRefresh()}
     ></FlatList>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Image, ActivityIndicator, Pressable } from 'react-native';
+import { Image, ActivityIndicator, View } from 'react-native';
 import FastImage from 'react-native-fast-image';
 import { COLORS, SIZES } from '../../constants/theme';
 import styles from './styles';
@@ -46,7 +46,7 @@ const CustomImage = props => {
   }, []);
 
   return (
-    <Pressable onPress={onPress} style={{ ...containerStyle, ...styles.container, ...imageStyle }}>
+    <View style={{ ...containerStyle, ...styles.container, ...imageStyle }}>
       {imageSizeLoading ? <ActivityIndicator color={COLORS.navyBlue} /> : null}
       <FastImage
         source={{ uri: image }}
@@ -54,7 +54,7 @@ const CustomImage = props => {
         resizeMode={FastImage.resizeMode.cover}
         {...props}
       ></FastImage>
-    </Pressable>
+    </View>
   );
 };
 
