@@ -4,7 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 import auth from '@react-native-firebase/auth';
 import ButtonGroup from '../../components/ButtonGroup';
 import styles from './styles';
-import InfoModal from '../../components/infoModal';
+import InfoModal from '../../components/InfoModal';
 import { useDispatch } from 'react-redux';
 import { setUserInfo } from '../../redux/actions/user';
 
