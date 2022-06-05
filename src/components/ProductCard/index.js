@@ -6,7 +6,6 @@ import styles from './styles';
 
 export default function ProductCard(props) {
   const { images, productWidth, productName, brandName, marketPrice, currentPrice } = props;
-  console.log(props);
   const navigation = useNavigation();
 
   return (
