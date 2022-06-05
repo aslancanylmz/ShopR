@@ -6,6 +6,7 @@ export const COLORS = {
   ocher: '#D2A670',
   trendyol: '#ff7f00',
   secondaryTextColor: '#444',
+  softBackground: '#fcf2e7',
   invalidColor: 'red',
   successColor: 'green'
 };

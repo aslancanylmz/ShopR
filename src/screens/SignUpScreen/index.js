@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { KeyboardAvoidingView, Platform, Text, TextInput, View } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
 import auth from '@react-native-firebase/auth';
 import ButtonGroup from '../../components/ButtonGroup';
 import styles from './styles';
@@ -18,7 +17,6 @@ export default function SignUpScreen() {
   const [successSignUpModalVisible, setSuccessSignUpModalVisible] = useState(false);
   const [user, setUser] = useState(null);
 
-  const navigation = useNavigation();
   const dispatch = useDispatch();
 
   const validationConfirmPassword = (password, confirmPassword) => {
