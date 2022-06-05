@@ -1,11 +1,10 @@
 /* eslint-disable react/react-in-jsx-scope */
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import React from 'react';
-import Cart from '../screens/Cart';
-import Products from '../screens/Products';
 import { COLORS } from '../constants/theme';
 import { Icon, iconNames } from '../components/Icon';
 import HomeNavigation from './HomeNavigation';
+import CartNavigation from './CartNavigation';
 
 const Tab = createBottomTabNavigator();
 
@@ -22,20 +21,11 @@ export const TabNavigator = () => {
         }}
       />
       <Tab.Screen
-        name='Cart'
-        component={Cart}
+        name='CartNavigation'
+        component={CartNavigation}
         options={{
           tabBarIcon: ({ focused }) => (
             <Icon iconName={iconNames.Cart} color={focused ? COLORS.trendyol : COLORS.textInputBorderColor}></Icon>
-          )
-        }}
-      />
-      <Tab.Screen
-        name='Coupon'
-        component={Cart}
-        options={{
-          tabBarIcon: ({ focused }) => (
-            <Icon iconName={iconNames.Coupon} color={focused ? COLORS.trendyol : COLORS.textInputBorderColor}></Icon>
           )
         }}
       />

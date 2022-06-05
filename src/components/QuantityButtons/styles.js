@@ -6,7 +6,8 @@ const styles = StyleSheet.create({
     borderRadius: 32,
     borderColor: COLORS.textInputBorderColor,
     borderWidth: 1,
-    flexDirection: 'row'
+    flexDirection: 'row',
+    marginTop: 8
   },
   quantityButtonContainer: {
     padding: 4,
