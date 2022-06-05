@@ -1,2 +1,2 @@
-export const cartCounter = state => state.cart.cartCounter;
+export const cartProductList = state => state.cart.cartProductList;
 export const userInfo = state => state.user.userInfo;
