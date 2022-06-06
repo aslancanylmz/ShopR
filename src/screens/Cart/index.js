@@ -14,12 +14,20 @@ const Cart = () => {
   const [matchedCampaigns, setMatchCampaigns] = useState([]);
   const [discountTexts, setDiscountTexts] = useState([]);
   const [totalDiscount, setTotalDiscount] = useState(0);
+  const [subTotalPrice, setSubTotalPrice] = useState(0);
 
   const calculateTotalDiscount = () => {
     let tempTotalDiscount = matchedCampaigns
       .map(product => product && product.discount * product.quantity)
       .reduce((partialSum, a) => partialSum + a, 0);
     setTotalDiscount(tempTotalDiscount);
+  };
+
+  const calculateSubTotalPrice = () => {
+    let tempTotalDiscount = productList
+      .map(product => product && product.currentPrice * product.quantity)
+      .reduce((partialSum, a) => partialSum + a, 0);
+    setSubTotalPrice(tempTotalDiscount);
   };
 
   useEffect(() => {
@@ -57,6 +65,7 @@ const Cart = () => {
   useEffect(() => {
     calculateTotalDiscount();
     generateDiscountTexts();
+    calculateSubTotalPrice();
   }, [matchedCampaigns, campaigns, cartProducts]);
 
   const generateDiscountTexts = () => {
@@ -102,7 +111,13 @@ const Cart = () => {
           ))}
         <View style={styles.totalPriceContainer}>
           <Text>Toplam İndirim:</Text>
-          <Text>{totalDiscount} ₺</Text>
+          <Text style={styles.gainText}>-{totalDiscount} ₺</Text>
+        </View>
+        <View style={styles.totalPriceContainer}>
+          <Text>Toplam Fiyat:</Text>
+          <Text>
+            {subTotalPrice}₺ - {totalDiscount}₺ = {subTotalPrice - totalDiscount}₺
+          </Text>
         </View>
       </View>
       <ButtonGroup
