@@ -10,7 +10,7 @@ import { Icon, iconNames } from '../Icon';
 
 export default function ProductButton(props) {
   const { product } = props;
-  const { images, productWidth, productName, brandName, marketPrice, currentPrice, quantity } = product;
+  const { images, productWidth, productName, brandName, marketPrice, currentPrice, quantity, category } = product;
   const navigation = useNavigation();
   const [quantityState, setQuantityState] = useState(quantity);
   const dispatch = useDispatch();
@@ -23,7 +23,8 @@ export default function ProductButton(props) {
       brandName: brandName,
       marketPrice: marketPrice,
       currentPrice: currentPrice,
-      quantity: quantityState
+      quantity: quantityState,
+      category: category
     };
     dispatch(updateProductInCart(product));
   }, [quantityState]);

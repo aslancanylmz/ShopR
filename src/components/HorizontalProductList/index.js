@@ -24,7 +24,7 @@ export default function HorizontalProductList({ category }) {
   }, []);
 
   const renderProduct = ({ item }) => {
-    const { imageList, productName, brandName, currentPrice, marketPrice } = item;
+    const { imageList, productName, brandName, currentPrice, marketPrice, category } = item;
     return (
       <ProductCard
         images={imageList}
@@ -33,6 +33,7 @@ export default function HorizontalProductList({ category }) {
         brandName={brandName}
         currentPrice={currentPrice}
         marketPrice={marketPrice}
+        category={category}
       ></ProductCard>
     );
   };

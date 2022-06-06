@@ -50,3 +50,16 @@ export const getMoreProducts = (productList, setProductList, categoryList, setIs
       setProductList([...productList, ...tempProductList]);
     });
 };
+export const getCampaigns = setCampaigns => {
+  firestore()
+    .collection('campaigns')
+    .get()
+    .then(querySnapshot => {
+      let tempCampaigns = [];
+      querySnapshot.forEach(snapshot => {
+        let data = snapshot.data();
+        tempCampaigns.push(data);
+      });
+      setCampaigns(tempCampaigns);
+    });
+};
