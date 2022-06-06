@@ -101,7 +101,7 @@ const Cart = () => {
         ItemSeparatorComponent={renderSeparator}
       ></FlatList>
       <View style={styles.infoContainer}>
-        {discountTexts.length > 0 &&
+        {totalDiscount > 0 &&
           discountTexts.map((discountText, index) => (
             <>
               <View key={index} style={styles.discountContainer}>
@@ -113,7 +113,7 @@ const Cart = () => {
               </View>
             </>
           ))}
-        {discountTexts.length > 0 && (
+        {totalDiscount > 0 && (
           <View style={styles.totalPriceContainer}>
             <Text>Toplam İndirim:</Text>
             <Text style={styles.gainText}>-{totalDiscount} ₺</Text>
