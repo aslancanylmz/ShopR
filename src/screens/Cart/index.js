@@ -6,6 +6,7 @@ import ProductButton from '../../components/ProductButton';
 import { cartProductList } from '../../redux/selectors';
 import { getCampaigns } from '../../services/API/api';
 import ButtonGroup from '../../components/ButtonGroup';
+import EmptyCart from './EmptyCart';
 
 const Cart = () => {
   const cartProducts = useSelector(cartProductList);
@@ -89,6 +90,7 @@ const Cart = () => {
   const renderSeparator = () => {
     return <View style={styles.separator} />;
   };
+  if (productList.length === 0) return <EmptyCart />;
   return (
     <View style={styles.container}>
       <FlatList
@@ -101,22 +103,28 @@ const Cart = () => {
       <View style={styles.infoContainer}>
         {discountTexts.length > 0 &&
           discountTexts.map((discountText, index) => (
-            <View key={index} style={styles.discountContainer}>
-              <View>
-                <Text style={styles.infoTitle}>{discountText.title}</Text>
-                <Text style={styles.infoDescription}>{discountText.description}</Text>
+            <>
+              <View key={index} style={styles.discountContainer}>
+                <View>
+                  <Text style={styles.infoTitle}>{discountText.title}</Text>
+                  <Text style={styles.infoDescription}>{discountText.description}</Text>
+                </View>
+                <Text style={styles.gainText}>{discountText.gain}</Text>
               </View>
-              <Text style={styles.gainText}>{discountText.gain}</Text>
-            </View>
+            </>
           ))}
-        <View style={styles.totalPriceContainer}>
-          <Text>Toplam İndirim:</Text>
-          <Text style={styles.gainText}>-{totalDiscount} ₺</Text>
-        </View>
+        {discountTexts.length > 0 && (
+          <View style={styles.totalPriceContainer}>
+            <Text>Toplam İndirim:</Text>
+            <Text style={styles.gainText}>-{totalDiscount} ₺</Text>
+          </View>
+        )}
         <View style={styles.totalPriceContainer}>
           <Text>Toplam Fiyat:</Text>
-          <Text>
-            {subTotalPrice}₺ - {totalDiscount}₺ = {subTotalPrice - totalDiscount}₺
+          <Text style={styles.totalPriceText}>
+            {totalDiscount > 0
+              ? `${subTotalPrice}₺ - ${totalDiscount}₺ = ${subTotalPrice - totalDiscount}₺ `
+              : `${subTotalPrice} ₺`}
           </Text>
         </View>
       </View>

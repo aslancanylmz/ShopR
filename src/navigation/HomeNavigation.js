@@ -10,7 +10,7 @@ const Stack = createNativeStackNavigator();
 const HomeNavigation = () => {
   return (
     <Stack.Navigator screenOptions={{ headerShown: true, headerShadowVisible: false }} headerMode={'screen'}>
-      <Stack.Screen name={'Products'} options={{ title: 'Home' }} component={Products} />
+      <Stack.Screen name={'Products'} options={{ title: 'Anasayfa' }} component={Products} />
       <Stack.Screen
         name={'CategoryDetail'}
         options={({ route }) => ({ headerBackTitleVisible: false, headerTintColor: COLORS.black, title: route.params.title })}

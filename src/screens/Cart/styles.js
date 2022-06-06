@@ -23,7 +23,8 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     marginHorizontal: 16,
     marginVertical: 8,
-    padding: 4
+    paddingHorizontal: 8,
+    paddingVertical: 4
   },
   discountContainer: {
     flexDirection: 'row',
@@ -31,7 +32,8 @@ const styles = StyleSheet.create({
     marginVertical: 4
   },
   confirmCartButton: {
-    paddingHorizontal: 16
+    paddingHorizontal: 16,
+    marginBottom: 8
   },
   infoDescription: {},
   infoTitle: {
@@ -47,7 +49,24 @@ const styles = StyleSheet.create({
   totalPriceContainer: {
     justifyContent: 'space-between',
     flexDirection: 'row',
-    marginVertical: 8
+    marginVertical: 4
+  },
+  emptyContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 16
+  },
+  emptyCartText: {
+    fontSize: 24,
+    color: COLORS.secondaryTextColor,
+    textAlign: 'center',
+    fontWeight: '600',
+    marginBottom: 32
+  },
+  totalPriceText: {
+    fontWeight: '600',
+    color: COLORS.black
   }
 });
 
