@@ -63,3 +63,19 @@ export const getCampaigns = setCampaigns => {
       setCampaigns(tempCampaigns);
     });
 };
+export const searchProductList = (setProductList, searchText, setLoading) => {
+  firestore()
+    .collection('productList')
+    .where('productName', '>=', searchText)
+    .where('productName', '<=', searchText + '~')
+    .get()
+    .then(querySnapshot => {
+      let searchProductList = [];
+      querySnapshot.forEach(snapshot => {
+        let data = snapshot.data();
+        searchProductList.push(data);
+      });
+      setProductList(searchProductList);
+      setLoading && setLoading(false);
+    });
+};

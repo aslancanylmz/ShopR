@@ -83,8 +83,8 @@ const Cart = () => {
     setDiscountTexts(tempDiscountText);
   };
 
-  const renderProduct = ({ item }) => {
-    return <ProductButton product={item}></ProductButton>;
+  const renderProduct = ({ item, index }) => {
+    return <ProductButton key={index} product={item}></ProductButton>;
   };
 
   const renderSeparator = () => {
@@ -101,18 +101,22 @@ const Cart = () => {
         ItemSeparatorComponent={renderSeparator}
       ></FlatList>
       <View style={styles.infoContainer}>
-        {totalDiscount > 0 &&
-          discountTexts.map((discountText, index) => (
-            <>
-              <View key={index} style={styles.discountContainer}>
+        {totalDiscount > 0 && (
+          <FlatList
+            data={discountTexts}
+            renderItem={({ item }) => (
+              <View style={styles.discountContainer}>
                 <View>
-                  <Text style={styles.infoTitle}>{discountText.title}</Text>
-                  <Text style={styles.infoDescription}>{discountText.description}</Text>
+                  <Text style={styles.infoTitle}>{item.title}</Text>
+                  <Text style={styles.infoDescription}>{item.description}</Text>
                 </View>
-                <Text style={styles.gainText}>{discountText.gain}</Text>
+                <Text style={styles.gainText}>{item.gain}</Text>
               </View>
-            </>
-          ))}
+            )}
+            keyExtractor={(item, index) => String(index)}
+          ></FlatList>
+        )}
+
         {totalDiscount > 0 && (
           <View style={styles.totalPriceContainer}>
             <Text>Toplam İndirim:</Text>
