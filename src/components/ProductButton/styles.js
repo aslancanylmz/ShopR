@@ -47,7 +47,7 @@ export const styles = StyleSheet.create({
   crossIcon: {
     position: 'absolute',
     top: 5,
-    right: 20
+    right: 5
   }
 });
 

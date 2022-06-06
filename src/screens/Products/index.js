@@ -38,7 +38,6 @@ export default function Products() {
       <>
         {index % 2 === 1 && <View style={styles.horizontalSeparator}></View>}
         <ProductCard
-          key={index}
           images={imageList}
           productWidth={productWidth}
           productName={productName}
@@ -72,6 +71,7 @@ export default function Products() {
     <>
       <TextInput
         onChangeText={text => (validSearchText(text) ? setSearchText(text) : setSearchText(null))}
+        placeholder={'Arama'}
         style={styles.searchInput}
       ></TextInput>
       {searchText ? (
