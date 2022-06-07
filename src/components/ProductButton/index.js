@@ -7,18 +7,21 @@ import QuantityButtons from '../QuantityButtons';
 import styles from './styles';
 import { deleteProduct, updateProductInCart } from '../../redux/actions/cart';
 import { Icon, iconNames } from '../Icon';
+import { SIZES } from '../../constants/theme';
+import { productListEnums } from '../../constants/enums';
 
 export default function ProductButton(props) {
   const { product } = props;
-  const { imageList, productWidth, productName, brandName, marketPrice, currentPrice, quantity, category } = product;
+  const { imageList, productName, brandName, marketPrice, currentPrice, quantity, category } = product;
   const navigation = useNavigation();
   const [quantityState, setQuantityState] = useState(quantity);
   const dispatch = useDispatch();
+  const { numberOfProductsInHorizontalList, separatorWidth } = productListEnums;
+  const productWidth = SIZES.screenWidth / numberOfProductsInHorizontalList - separatorWidth;
 
   useEffect(() => {
     let product = {
       imageList: imageList,
-      productWidth: productWidth,
       productName: productName,
       brandName: brandName,
       marketPrice: marketPrice,
@@ -49,8 +52,8 @@ export default function ProductButton(props) {
         <Text style={styles.brandNameText}>{brandName}</Text>
         <Text style={styles.productNameText}>{productName}</Text>
         <View style={styles.priceContainer}>
-          {marketPrice && <Text style={styles.marketPrice}>{marketPrice}</Text>}
-          <Text style={styles.currentPrice}>{currentPrice}</Text>
+          {marketPrice && <Text style={styles.marketPrice}>{marketPrice} ₺</Text>}
+          <Text style={styles.currentPrice}>{currentPrice} ₺</Text>
         </View>
         <QuantityButtons quantity={quantityState} setQuantity={setQuantityState}></QuantityButtons>
       </View>

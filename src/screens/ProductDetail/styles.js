@@ -34,6 +34,19 @@ const styles = StyleSheet.create({
   currentPrice: {
     fontSize: 24,
     fontWeight: '700'
+  },
+  activityIndicator: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  descriptionText: {
+    fontSize: 16,
+    fontWeight: '500',
+    color: COLORS.secondaryTextColor
+  },
+  collapsibleContainer: {
+    height: 250
   }
 });
 

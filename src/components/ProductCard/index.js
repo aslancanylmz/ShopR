@@ -23,8 +23,8 @@ export default function ProductCard(props) {
       <Text style={styles.brandNameText}>{brandName}</Text>
       <Text style={styles.productNameText}>{productName}</Text>
       <View style={styles.priceContainer}>
-        {marketPrice && <Text style={styles.marketPrice}>{marketPrice}</Text>}
-        <Text style={styles.currentPrice}>{currentPrice}</Text>
+        {marketPrice && <Text style={styles.marketPrice}>{marketPrice} ₺</Text>}
+        <Text style={styles.currentPrice}>{currentPrice} ₺</Text>
       </View>
     </TouchableOpacity>
   );

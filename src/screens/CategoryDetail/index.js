@@ -20,7 +20,7 @@ export default function CategoryDetail({ route }) {
   }, [route]);
 
   const renderProduct = ({ item, index }) => {
-    const { imageList, productName, brandName, marketPrice, currentPrice, productId } = item;
+    const { imageList, productName, brandName, marketPrice, currentPrice, productId, description } = item;
     return (
       <>
         {index % 2 === 1 && <View style={styles.horizontalSeparator}></View>}
@@ -32,6 +32,7 @@ export default function CategoryDetail({ route }) {
           marketPrice={marketPrice}
           currentPrice={currentPrice}
           productId={productId}
+          description={description}
         ></ProductCard>
       </>
     );

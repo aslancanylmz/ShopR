@@ -2,7 +2,7 @@ import React from 'react';
 import HorizontalProductList from '../../components/HorizontalProductList';
 import { ActivityIndicator, FlatList, TextInput, View } from 'react-native';
 import { useState, useEffect } from 'react';
-import { getCategoryList, getMoreSearchProduct, searchProductList } from '../../services/API/api';
+import { getCategoryList, searchProductList } from '../../services/API/api';
 import HorizontalProductShimmer from '../../components/HorizontalProductList/HorizontalProductShimmer';
 import { validSearchText } from '../../constants/helpers';
 import styles from './styles';
