@@ -7,7 +7,7 @@ import { getMoreProducts, getProductList } from '../../services/API/api';
 import styles from './styles';
 
 export default function CategoryDetail({ route }) {
-  const category = route.params.title;
+  const category = route.params.categoryName;
   const [productList, setProductList] = useState([]);
   const [isLastItem, setIsLastItem] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -17,20 +17,21 @@ export default function CategoryDetail({ route }) {
 
   useEffect(() => {
     getProductList(setProductList, [category], setLoading, setFirstLoad);
-  }, []);
+  }, [route]);
 
   const renderProduct = ({ item, index }) => {
-    const { imageList, productName, brandName, marketPrice, currentPrice } = item;
+    const { imageList, productName, brandName, marketPrice, currentPrice, productId } = item;
     return (
       <>
         {index % 2 === 1 && <View style={styles.horizontalSeparator}></View>}
         <ProductCard
-          images={imageList}
+          imageList={imageList}
           productWidth={productWidth}
           productName={productName}
           brandName={brandName}
           marketPrice={marketPrice}
           currentPrice={currentPrice}
+          productId={productId}
         ></ProductCard>
       </>
     );

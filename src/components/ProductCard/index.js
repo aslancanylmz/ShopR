@@ -5,16 +5,21 @@ import { CustomImage } from '../CustomImage';
 import styles from './styles';
 
 export default function ProductCard(props) {
-  const { images, productWidth, productName, brandName, marketPrice, currentPrice } = props;
+  const { imageList, productWidth, productName, brandName, marketPrice, currentPrice, productId } = props;
   const navigation = useNavigation();
 
   return (
     <TouchableOpacity
-      onPress={() => navigation.navigate('ProductDetail', { productDetails: props, title: productName })}
+      onPress={() => navigation.navigate('ProductDetail', { productDetails: props, title: productName, productId: productId })}
       style={styles.container}
       activeOpacity={0.5}
     >
-      <CustomImage containerStyle={styles.productImage} marginSize={8} image={images[0]} customWidth={productWidth}></CustomImage>
+      <CustomImage
+        containerStyle={styles.productImage}
+        marginSize={8}
+        image={imageList[0]}
+        customWidth={productWidth}
+      ></CustomImage>
       <Text style={styles.brandNameText}>{brandName}</Text>
       <Text style={styles.productNameText}>{productName}</Text>
       <View style={styles.priceContainer}>

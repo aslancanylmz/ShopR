@@ -6,7 +6,7 @@ import styles from './styles';
 import { CustomImage } from '../CustomImage';
 import { SIZES } from '../../constants/theme';
 
-const SliderBox = ({ images, carouselWidth = SIZES.screenWidth, marginSize = 64 }) => {
+const SliderBox = ({ imageList, carouselWidth = SIZES.screenWidth, marginSize = 64 }) => {
   const [activeSlide, setActiveSlide] = useState(0);
 
   const onSnapToItem = index => {
@@ -21,7 +21,7 @@ const SliderBox = ({ images, carouselWidth = SIZES.screenWidth, marginSize = 64 
     <>
       <View style={styles.carouselWrapper}>
         <Carousel
-          data={images}
+          data={imageList}
           sliderWidth={carouselWidth}
           itemWidth={carouselWidth}
           layout={'default'}
@@ -32,7 +32,7 @@ const SliderBox = ({ images, carouselWidth = SIZES.screenWidth, marginSize = 64 
         />
       </View>
       <Pagination
-        dotsLength={images.length}
+        dotsLength={imageList?.length}
         activeDotIndex={activeSlide}
         dotStyle={styles.dot}
         inactiveDotStyle={styles.inactiveDot}

@@ -24,16 +24,17 @@ export default function HorizontalProductList({ category }) {
   }, []);
 
   const renderProduct = ({ item }) => {
-    const { imageList, productName, brandName, currentPrice, marketPrice, category } = item;
+    const { imageList, productName, brandName, currentPrice, marketPrice, category, productId } = item;
     return (
       <ProductCard
-        images={imageList}
+        imageList={imageList}
         productWidth={productWidth}
         productName={productName}
         brandName={brandName}
         currentPrice={currentPrice}
         marketPrice={marketPrice}
         category={category}
+        productId={productId}
       ></ProductCard>
     );
   };
@@ -52,7 +53,7 @@ export default function HorizontalProductList({ category }) {
   return (
     <View style={styles.contentContainer}>
       {category && (
-        <Text onPress={() => navigation.navigate('CategoryDetail', { title: category })} style={styles.titleText}>
+        <Text onPress={() => navigation.navigate('CategoryDetail', { categoryName: category })} style={styles.titleText}>
           {category}
         </Text>
       )}

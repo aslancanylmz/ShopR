@@ -33,17 +33,18 @@ export default function Products() {
   }, [searchText]);
 
   const renderProduct = ({ item, index }) => {
-    const { imageList, productName, brandName, marketPrice, currentPrice } = item;
+    const { imageList, productName, brandName, marketPrice, currentPrice, productId } = item;
     return (
       <>
         {index % 2 === 1 && <View style={styles.horizontalSeparator}></View>}
         <ProductCard
-          images={imageList}
+          imageList={imageList}
           productWidth={productWidth}
           productName={productName}
           brandName={brandName}
           marketPrice={marketPrice}
           currentPrice={currentPrice}
+          productId={productId}
         ></ProductCard>
       </>
     );
@@ -96,27 +97,4 @@ export default function Products() {
       )}
     </>
   );
-}
-
-{
-  /* <TouchableOpacity
-      style={{ width: 20, height: 100, backgroundColor: 'red' }}
-      onPress={() => {
-        products?.forEach(item => {
-          firestore()
-            .collection('productList')
-            .add({
-              imageList: item.imageList,
-              productName: item.productName,
-              brandName: item.brandName,
-              marketPrice: item.currencyPrice,
-              category: item.category,
-              currentPrice: item.marketPrice
-            })
-            .then(() => {
-              console.log('User added!');
-            });
-        });
-      }}
-    ></TouchableOpacity> */
 }

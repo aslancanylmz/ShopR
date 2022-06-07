@@ -79,3 +79,16 @@ export const searchProductList = (setProductList, searchText, setLoading) => {
       setLoading && setLoading(false);
     });
 };
+export const getProductDetail = async (productId, setLoading, setProductDetail) => {
+  const productRef = firestore().collection('productList');
+  const snapshot = await productRef.where('productId', '==', productId).get();
+  if (snapshot.empty) {
+    console.log('No matching documents.');
+    setLoading(false);
+    return;
+  }
+
+  snapshot.forEach(doc => {
+    setProductDetail(doc.data()), setLoading(false);
+  });
+};

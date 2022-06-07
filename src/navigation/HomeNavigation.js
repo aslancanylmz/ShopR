@@ -13,7 +13,11 @@ const HomeNavigation = () => {
       <Stack.Screen name={'Products'} options={{ title: 'Anasayfa' }} component={Products} />
       <Stack.Screen
         name={'CategoryDetail'}
-        options={({ route }) => ({ headerBackTitleVisible: false, headerTintColor: COLORS.black, title: route.params.title })}
+        options={({ route }) => ({
+          headerBackTitleVisible: false,
+          headerTintColor: COLORS.black,
+          title: route.params.categoryName
+        })}
         component={CategoryDetail}
       />
       <Stack.Screen

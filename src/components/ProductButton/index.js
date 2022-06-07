@@ -10,14 +10,14 @@ import { Icon, iconNames } from '../Icon';
 
 export default function ProductButton(props) {
   const { product } = props;
-  const { images, productWidth, productName, brandName, marketPrice, currentPrice, quantity, category } = product;
+  const { imageList, productWidth, productName, brandName, marketPrice, currentPrice, quantity, category } = product;
   const navigation = useNavigation();
   const [quantityState, setQuantityState] = useState(quantity);
   const dispatch = useDispatch();
 
   useEffect(() => {
     let product = {
-      images: images,
+      imageList: imageList,
       productWidth: productWidth,
       productName: productName,
       brandName: brandName,
@@ -39,7 +39,12 @@ export default function ProductButton(props) {
       style={styles.container}
       activeOpacity={0.5}
     >
-      <CustomImage containerStyle={styles.productImage} marginSize={8} image={images[0]} customWidth={productWidth}></CustomImage>
+      <CustomImage
+        containerStyle={styles.productImage}
+        marginSize={8}
+        image={imageList[0]}
+        customWidth={productWidth}
+      ></CustomImage>
       <View style={styles.productInfoContainer}>
         <Text style={styles.brandNameText}>{brandName}</Text>
         <Text style={styles.productNameText}>{productName}</Text>
