@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { ActivityIndicator, ScrollView, Text, View } from 'react-native';
+import { ActivityIndicator, ScrollView, Share, Text, View } from 'react-native';
 import styles from './styles';
 import ButtonGroup from '../../components/ButtonGroup';
 import SliderBox from '../../components/SliderBox';
@@ -10,6 +10,7 @@ import { useNavigation } from '@react-navigation/native';
 import { COLORS } from '../../constants/theme';
 import CollapsibleButton from '../../components/CollapsibleButton';
 import Collapsible from 'react-native-collapsible';
+import { Icon, iconNames } from '../../components/Icon';
 
 export default function ProductDetail({ route }) {
   const [productDetail, setProductDetail] = useState(null);
@@ -20,11 +21,34 @@ export default function ProductDetail({ route }) {
   const navigation = useNavigation();
   const collapsibleRef = useRef();
 
+  const onShare = async () => {
+    try {
+      await Share.share({
+        title: 'Ürün Paylaş',
+        message: 'Bu ürünü hemen arkadaşlarınla paylaş',
+        url: `shopr://urun-detay/${productId}`
+      });
+    } catch (error) {
+      alert(error.message);
+    }
+  };
+
   useEffect(() => {
     !productDetail ? getProductDetail(parseInt(productId), setLoading, setProductDetail) : setLoading(false);
     productDetail &&
-      navigation.setOptions({ headerBackTitleVisible: false, headerTintColor: COLORS.black, title: productDetail.productName });
-  }, []);
+      navigation.setOptions({
+        headerBackTitleVisible: false,
+        headerTintColor: COLORS.black,
+        title: productDetail.productName,
+        headerRight: () => <Icon iconName={iconNames.Share} onPress={onShare} />,
+        headerLeft: () => (
+          <Icon
+            iconName={iconNames.Back}
+            onPress={() => (navigation.canGoBack() ? navigation.goBack() : navigation.replace('Products'))}
+          />
+        )
+      });
+  }, [productDetail]);
   const handleCollapsibleVisible = () => {
     setIsCollapsed(!isCollapsed);
     collapsibleRef.current.scrollToEnd({ animated: true });
