@@ -11,10 +11,10 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		92F38D88C5DE2640D7B011CF /* libPods-ShopR.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93BE9A7B6D2F38EBA4504995 /* libPods-ShopR.a */; };
 		B547C23126D4C19A063C28D6 /* libPods-ShopR-ShopRTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C42E6F644832263F9D7F4D58 /* libPods-ShopR-ShopRTests.a */; };
 		D3400D30283B71A0007046A2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D3400D2F283B71A0007046A2 /* GoogleService-Info.plist */; };
+		D36BED16284E44EB00A19D58 /* BootSplash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D36BED15284E44EB00A19D58 /* BootSplash.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,13 +37,13 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ShopR/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ShopR/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ShopR/main.m; sourceTree = "<group>"; };
-		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = ShopR/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		93BE9A7B6D2F38EBA4504995 /* libPods-ShopR.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ShopR.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		94249A0CC62E4F6F823D466F /* Pods-ShopR.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShopR.release.xcconfig"; path = "Target Support Files/Pods-ShopR/Pods-ShopR.release.xcconfig"; sourceTree = "<group>"; };
 		C2B13CDE2078B422397E9C33 /* Pods-ShopR.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShopR.debug.xcconfig"; path = "Target Support Files/Pods-ShopR/Pods-ShopR.debug.xcconfig"; sourceTree = "<group>"; };
 		C42E6F644832263F9D7F4D58 /* libPods-ShopR-ShopRTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ShopR-ShopRTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAD266ACAF0344F47292773E /* Pods-ShopR-ShopRTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShopR-ShopRTests.release.xcconfig"; path = "Target Support Files/Pods-ShopR-ShopRTests/Pods-ShopR-ShopRTests.release.xcconfig"; sourceTree = "<group>"; };
 		D3400D2F283B71A0007046A2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D36BED15284E44EB00A19D58 /* BootSplash.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = BootSplash.storyboard; path = ShopR/BootSplash.storyboard; sourceTree = "<group>"; };
 		DEC4A7528816870767E32C9E /* Pods-ShopR-ShopRTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShopR-ShopRTests.debug.xcconfig"; path = "Target Support Files/Pods-ShopR-ShopRTests/Pods-ShopR-ShopRTests.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -88,11 +88,11 @@
 		13B07FAE1A68108700A75B9A /* ShopR */ = {
 			isa = PBXGroup;
 			children = (
+				D36BED15284E44EB00A19D58 /* BootSplash.storyboard */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
-				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
 			name = ShopR;
@@ -246,9 +246,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				D3400D30283B71A0007046A2 /* GoogleService-Info.plist in Resources */,
+				D36BED16284E44EB00A19D58 /* BootSplash.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
