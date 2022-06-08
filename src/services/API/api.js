@@ -10,7 +10,9 @@ export const getCategoryList = setCategoryList => {
         let data = snapshot.data().category;
         !categoryList.some(category => category === data) && categoryList.push(data);
       });
-      setCategoryList(categoryList);
+      categoryList.length
+        ? setCategoryList(categoryList)
+        : setCategoryList({ error: `Bir sorun oluştu.\nLütfen daha sonra deneyin` });
     });
 };
 export const getProductList = (setProductList, categoryList, setLoading, setFirstLoading) => {
@@ -25,7 +27,7 @@ export const getProductList = (setProductList, categoryList, setLoading, setFirs
         let data = snapshot.data();
         productList.push(data);
       });
-      setProductList(productList);
+      productList.length ? setProductList(productList) : setProductList({ error: 'Bu kategoriye ait ürün bulunumadı.' });
       setFirstLoading && setFirstLoading(false);
       setLoading && setLoading(false);
     });
@@ -79,6 +81,8 @@ export const searchProductList = (setProductList, searchText, setLoading) => {
       setLoading && setLoading(false);
     });
 };
+
+//Also an example with Async-Await
 export const getProductDetail = async (productId, setLoading, setProductDetail) => {
   const productRef = firestore().collection('productList');
   const snapshot = await productRef.where('productId', '==', productId).get();

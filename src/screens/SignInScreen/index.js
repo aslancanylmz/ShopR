@@ -47,6 +47,7 @@ export default function SignInScreen() {
     <KeyboardAvoidingView keyboardVerticalOffset={100} behavior={isIos && 'padding'} style={styles.container}>
       <View>
         <TextInput
+          keyboardType={'email-address'}
           onChangeText={text => setEmail(text.toString())}
           placeholder={'E-Posta'}
           style={errorMessage || errorPassword ? styles.invalidInput : styles.input}

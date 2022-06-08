@@ -1,6 +1,6 @@
 import React from 'react';
 import HorizontalProductList from '../../components/HorizontalProductList';
-import { ActivityIndicator, FlatList, TextInput, View } from 'react-native';
+import { ActivityIndicator, FlatList, Text, TextInput, View } from 'react-native';
 import { useState, useEffect } from 'react';
 import { getCategoryList, searchProductList } from '../../services/API/api';
 import HorizontalProductShimmer from '../../components/HorizontalProductList/HorizontalProductShimmer';
@@ -67,7 +67,13 @@ export default function Products() {
       </>
     );
   };
-
+  if (categoryList.error) {
+    return (
+      <View style={styles.errorContainer}>
+        <Text style={styles.descriptionText}>{categoryList.error}</Text>
+      </View>
+    );
+  }
   return (
     <>
       <TextInput

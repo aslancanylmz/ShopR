@@ -36,6 +36,7 @@ export default function ForgotPassword() {
           gönderilecektir.
         </Text>
         <TextInput
+          keyboardType={'email-address'}
           onChangeText={email => setEmail(email)}
           placeholder={'Kayıtlı E-posta'}
           style={errorMessage ? styles.invalidInput : styles.input}

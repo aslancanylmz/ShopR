@@ -59,6 +59,7 @@ export default function SignUpScreen() {
     <KeyboardAvoidingView keyboardVerticalOffset={100} behavior={isIos && 'padding'} style={styles.container}>
       <View>
         <TextInput
+          keyboardType={'email-address'}
           onChangeText={text => setEmail(text.toString())}
           placeholder={'E-Posta'}
           style={errorMessage && validConfirmPassword ? styles.invalidInput : styles.input}
@@ -85,7 +86,7 @@ export default function SignUpScreen() {
       <InfoModal
         visible={successSignUpModalVisible}
         description={`${user?.user.email} email adresi ile üyeliğiniz \nbaşarıyla oluşturulmuştur.\nAnasayfaya yönlendiriliyorsunuz.`}
-        okButtonPress={() => dispatch(setUserInfo(user))}
+        okButtonPress={() => dispatch(setUserInfo(user), setSuccessSignUpModalVisible(false))}
       ></InfoModal>
     </KeyboardAvoidingView>
   );

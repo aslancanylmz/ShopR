@@ -24,6 +24,17 @@ const styles = StyleSheet.create({
   },
   footerContainer: {
     marginVertical: 24
+  },
+  errorContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  descriptionText: {
+    fontSize: 32,
+    textAlign: 'center',
+    fontWeight: '800',
+    marginHorizontal: 16
   }
 });
 

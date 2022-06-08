@@ -12,7 +12,7 @@ import { productListEnums } from '../../constants/enums';
 
 export default function ProductButton(props) {
   const { product } = props;
-  const { imageList, productName, brandName, marketPrice, currentPrice, quantity, category } = product;
+  const { imageList, productName, brandName, marketPrice, currentPrice, quantity, category, productId } = product;
   const navigation = useNavigation();
   const [quantityState, setQuantityState] = useState(quantity);
   const dispatch = useDispatch();
@@ -27,7 +27,8 @@ export default function ProductButton(props) {
       marketPrice: marketPrice,
       currentPrice: currentPrice,
       quantity: quantityState,
-      category: category
+      category: category,
+      productId: productId
     };
     dispatch(updateProductInCart(product));
   }, [quantityState]);
@@ -38,7 +39,9 @@ export default function ProductButton(props) {
 
   return (
     <TouchableOpacity
-      onPress={() => navigation.navigate('ProductDetailCart', { productDetails: product, title: productName })}
+      onPress={() =>
+        navigation.navigate('ProductDetailCart', { productDetails: product, productId: product.productId, title: productName })
+      }
       style={styles.container}
       activeOpacity={0.5}
     >
