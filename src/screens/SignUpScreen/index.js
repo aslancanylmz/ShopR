@@ -4,8 +4,10 @@ import auth from '@react-native-firebase/auth';
 import ButtonGroup from '../../components/ButtonGroup';
 import styles from './styles';
 import InfoModal from '../../components/InfoModal';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setUserInfo } from '../../redux/actions/user';
+import { setModalVisible } from '../../redux/actions/modal';
+import { modalVisible } from '../../redux/selectors';
 
 export default function SignUpScreen() {
   const [email, setEmail] = useState(null);
@@ -14,11 +16,9 @@ export default function SignUpScreen() {
   const [validConfirmPassword, setValidConfirmPassword] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
   const [requesting, setRequesting] = useState(false);
-  const [successSignUpModalVisible, setSuccessSignUpModalVisible] = useState(false);
   const [user, setUser] = useState(null);
 
   const dispatch = useDispatch();
-
   const validationConfirmPassword = (password, confirmPassword) => {
     if (password === confirmPassword) {
       setValidConfirmPassword(true);
@@ -37,7 +37,7 @@ export default function SignUpScreen() {
         .then(user => {
           setUser(user);
           setRequesting(false);
-          setSuccessSignUpModalVisible(true);
+          dispatch(setModalVisible(true));
         })
         .catch(error => {
           setRequesting(false);
@@ -84,9 +84,12 @@ export default function SignUpScreen() {
         primaryButtonPress={() => signUpWithEmail(email, password)}
       ></ButtonGroup>
       <InfoModal
-        visible={successSignUpModalVisible}
+        visible={useSelector(modalVisible)}
         description={`${user?.user.email} email adresi ile üyeliğiniz \nbaşarıyla oluşturulmuştur.\nAnasayfaya yönlendiriliyorsunuz.`}
-        okButtonPress={() => dispatch(setUserInfo(user), setSuccessSignUpModalVisible(false))}
+        okButtonPress={async () => {
+          await dispatch(setModalVisible(false));
+          dispatch(setUserInfo(user));
+        }}
       ></InfoModal>
     </KeyboardAvoidingView>
   );

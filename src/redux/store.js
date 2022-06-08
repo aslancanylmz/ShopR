@@ -3,6 +3,7 @@ import cartReducer from './reducers/cartReducer';
 import userReducer from './reducers/userReducer';
 import { persistStore, persistReducer } from 'redux-persist';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import modalReducer from './reducers/modalReducer';
 
 const persistConfig = {
   key: 'root',
@@ -21,7 +22,8 @@ const userConfig = {
 
 const rootReducer = combineReducers({
   cart: persistReducer(cartConfig, cartReducer),
-  user: persistReducer(userConfig, userReducer)
+  user: persistReducer(userConfig, userReducer),
+  modal: persistReducer(userConfig, modalReducer)
 });
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
