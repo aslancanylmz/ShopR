@@ -18,8 +18,11 @@ const AppNavigation = () => {
         headerMode={'screen'}
         initialRouteName={user ? 'TabNavigator' : 'AuthNavigator'}
       >
-        <Stack.Screen name={'TabNavigator'} component={TabNavigator} />
-        <Stack.Screen name={'AuthNavigator'} component={AuthNavigation} />
+        {user ? (
+          <Stack.Screen name={'TabNavigator'} component={TabNavigator} />
+        ) : (
+          <Stack.Screen name={'AuthNavigator'} component={AuthNavigation} />
+        )}
       </Stack.Navigator>
     );
   }

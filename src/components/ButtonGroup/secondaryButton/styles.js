@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     borderRadius: 2,
-    borderColor: COLORS.ocher,
+    borderColor: COLORS.trendyol,
     borderWidth: 1,
     backgroundColor: COLORS.white,
     paddingVertical: 8
@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     lineHeight: 22,
     includeFontPadding: false,
-    color: COLORS.ocher,
+    color: COLORS.trendyol,
     textAlign: 'center'
   }
 });

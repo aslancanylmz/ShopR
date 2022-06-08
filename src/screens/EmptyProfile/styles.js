@@ -3,13 +3,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    padding: 16
   },
   descriptionText: {
     fontSize: 32,
     textAlign: 'center',
     fontWeight: '800',
-    marginHorizontal: 16
+    margin: 16
   }
 });
 
