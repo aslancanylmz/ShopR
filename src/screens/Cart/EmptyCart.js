@@ -12,7 +12,7 @@ export default function EmptyCart() {
       <Text style={styles.emptyCartText}>{emptyCartText}</Text>
       <ButtonGroup
         primaryButtonText={'Hemen Alışverişe Başla'}
-        primaryButtonPress={() => navigation.navigate('HomeScreen')}
+        primaryButtonPress={() => navigation.navigate('HomeTab')}
       ></ButtonGroup>
     </View>
   );

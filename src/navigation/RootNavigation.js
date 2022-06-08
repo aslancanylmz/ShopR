@@ -18,13 +18,13 @@ const RootNavigation = () => {
         //When adding a new route, check the navigation lifecycle in the added route
         ['TabNavigator']: {
           screens: {
-            ['HomeScreen']: {
+            ['HomeTab']: {
               screens: {
                 ['CategoryDetail']: 'kategori/:categoryName',
                 ['ProductDetail']: 'urun-detay/:productId'
               }
             },
-            ['CartNavigation']: {
+            ['CartTab']: {
               screens: {
                 ['Cart']: 'sepetim/'
               }

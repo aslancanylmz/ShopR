@@ -8,6 +8,8 @@ import CartNavigation from './CartNavigation';
 import { useSelector } from 'react-redux';
 import { cartProductList } from '../redux/selectors';
 import styles from '../screens/Cart/styles';
+import EmptyCoupons from '../screens/EmptyCoupons';
+import EmptyProfile from '../screens/EmptyProfile';
 
 const Tab = createBottomTabNavigator();
 
@@ -18,7 +20,7 @@ export const TabNavigator = () => {
   return (
     <Tab.Navigator screenOptions={{ headerShown: false, tabBarShowLabel: false, tabBarActiveTintColor: COLORS.trendyol }}>
       <Tab.Screen
-        name='HomeScreen'
+        name='HomeTab'
         component={HomeNavigation}
         options={{
           tabBarIcon: ({ focused }) => (
@@ -27,13 +29,31 @@ export const TabNavigator = () => {
         }}
       />
       <Tab.Screen
-        name='CartNavigation'
+        name='CartTab'
         component={CartNavigation}
         options={{
           tabBarBadgeStyle: { backgroundColor: COLORS.trendyol, color: COLORS.white },
           tabBarBadge: cartCounter,
           tabBarIcon: ({ focused }) => (
             <Icon iconName={iconNames.Cart} color={focused ? COLORS.trendyol : COLORS.textInputBorderColor}></Icon>
+          )
+        }}
+      />
+      <Tab.Screen
+        name='CouponsTab'
+        component={EmptyCoupons}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <Icon iconName={iconNames.Coupon} color={focused ? COLORS.trendyol : COLORS.textInputBorderColor}></Icon>
+          )
+        }}
+      />
+      <Tab.Screen
+        name='ProfileTab'
+        component={EmptyProfile}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <Icon iconName={iconNames.Profile} color={focused ? COLORS.trendyol : COLORS.textInputBorderColor}></Icon>
           )
         }}
       />
