@@ -1,5 +1,5 @@
 import React from 'react';
-import { FlatList, Text, View } from 'react-native';
+import { FlatList, Text, TouchableOpacity, View } from 'react-native';
 import styles from './styles';
 import ProductCard from '../../components/ProductCard';
 import { productListEnums } from '../../constants/enums';
@@ -53,9 +53,13 @@ export default function HorizontalProductList({ category }) {
   return (
     <View style={styles.contentContainer}>
       {category && (
-        <Text onPress={() => navigation.navigate('CategoryDetail', { categoryName: category })} style={styles.titleText}>
-          {category}
-        </Text>
+        <TouchableOpacity
+          onPress={() => navigation.navigate('CategoryDetail', { categoryName: category })}
+          style={styles.categoryNameContainer}
+        >
+          <Text style={styles.titleText}>{category}</Text>
+          <Icon iconName={iconNames.Forward}></Icon>
+        </TouchableOpacity>
       )}
       <FlatList
         keyExtractor={(item, index) => String(index)}

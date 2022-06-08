@@ -7,7 +7,6 @@ import HomeNavigation from './HomeNavigation';
 import CartNavigation from './CartNavigation';
 import { useSelector } from 'react-redux';
 import { cartProductList } from '../redux/selectors';
-import styles from '../screens/Cart/styles';
 import EmptyCoupons from '../screens/EmptyCoupons';
 import EmptyProfile from '../screens/EmptyProfile';
 

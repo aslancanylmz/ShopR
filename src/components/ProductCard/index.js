@@ -20,11 +20,13 @@ export default function ProductCard(props) {
         image={imageList[0]}
         customWidth={productWidth}
       ></CustomImage>
-      <Text style={styles.brandNameText}>{brandName}</Text>
-      <Text style={styles.productNameText}>{productName}</Text>
-      <View style={styles.priceContainer}>
-        {marketPrice && <Text style={styles.marketPrice}>{marketPrice} ₺</Text>}
-        <Text style={styles.currentPrice}>{currentPrice} ₺</Text>
+      <View style={{ width: productWidth - 16 }}>
+        <Text style={styles.brandNameText}>{brandName}</Text>
+        <Text style={styles.productNameText}>{productName}</Text>
+        <View style={styles.priceContainer}>
+          {marketPrice && <Text style={styles.marketPrice}>{marketPrice} ₺</Text>}
+          <Text style={styles.currentPrice}>{currentPrice} ₺</Text>
+        </View>
       </View>
     </TouchableOpacity>
   );

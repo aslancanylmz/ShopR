@@ -77,7 +77,7 @@ const Cart = () => {
         tempDiscountText.push({
           title: `%${campaign.percentage} ${campaign.category} indirimi`,
           description: `${campaign.productName}`,
-          gain: `${campaign.quantity} adet x ${campaign.discount} ₺: ${-campaign.discount * campaign.quantity} ₺`
+          gain: `${campaign.quantity} x ${campaign.discount} ₺: ${(-campaign.discount * campaign.quantity).toFixed(2)} ₺`
         })
     );
     setDiscountTexts(tempDiscountText);
@@ -120,15 +120,15 @@ const Cart = () => {
         {totalDiscount > 0 && (
           <View style={styles.totalPriceContainer}>
             <Text>Toplam İndirim:</Text>
-            <Text style={styles.gainText}>-{totalDiscount} ₺</Text>
+            <Text style={styles.gainText}>-{totalDiscount.toFixed(2)} ₺</Text>
           </View>
         )}
         <View style={styles.totalPriceContainer}>
           <Text>Toplam Fiyat:</Text>
           <Text style={styles.totalPriceText}>
             {totalDiscount > 0
-              ? `${subTotalPrice}₺ - ${totalDiscount}₺ = ${subTotalPrice - totalDiscount}₺ `
-              : `${subTotalPrice} ₺`}
+              ? `${subTotalPrice.toFixed(2)}₺ - ${totalDiscount.toFixed(2)}₺ = ${(subTotalPrice - totalDiscount).toFixed(2)}₺ `
+              : `${subTotalPrice.toFixed(2)} ₺`}
           </Text>
         </View>
       </View>

@@ -18,10 +18,20 @@ const styles = StyleSheet.create({
   productShimmerContainer: {
     flexDirection: 'row'
   },
-  titleShimmer: { marginVertical: 12 },
-  productShimmer: { marginRight: 16 },
-
-  horizontalProductsShimmerContainer: { marginVertical: 16 }
+  titleShimmer: {
+    marginVertical: 12
+  },
+  productShimmer: {
+    marginRight: 16
+  },
+  horizontalProductsShimmerContainer: {
+    marginVertical: 16
+  },
+  categoryNameContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center'
+  }
 });
 
 export default styles;
