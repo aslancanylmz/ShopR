@@ -1,4 +1,4 @@
-import { ADD_TO_CART, UPDATE_PRODUCT_IN_CART, DELETE_PRODUCT } from '../actions/types';
+import { ADD_TO_CART, UPDATE_PRODUCT_IN_CART, DELETE_PRODUCT, RESET_CART } from '../actions/types';
 
 const initialState = {
   cartProductList: []
@@ -40,6 +40,11 @@ const cartReducer = (state = initialState, action) => {
       return {
         ...state,
         cartProductList: state.cartProductList.filter(product => product.productName !== action.payload.productName)
+      };
+    case RESET_CART:
+      return {
+        ...state,
+        cartProductList: []
       };
     default:
       return state;

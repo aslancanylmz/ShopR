@@ -5,12 +5,14 @@ import styles from './styles';
 import auth from '@react-native-firebase/auth';
 import { setUserInfo } from '../../redux/actions/user';
 import { useDispatch } from 'react-redux';
+import { resetCart } from '../../redux/actions/cart';
 
 const EmptyProfile = () => {
   const dispatch = useDispatch();
   const logOut = () => {
     auth().signOut();
     dispatch(setUserInfo(null));
+    dispatch(resetCart());
   };
   return (
     <View style={styles.container}>

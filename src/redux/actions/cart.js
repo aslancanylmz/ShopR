@@ -1,4 +1,4 @@
-import { ADD_TO_CART, DELETE_PRODUCT, UPDATE_PRODUCT_IN_CART } from './types';
+import { ADD_TO_CART, DELETE_PRODUCT, RESET_CART, UPDATE_PRODUCT_IN_CART } from './types';
 
 export const addToCart = product => {
   return {
@@ -16,5 +16,10 @@ export const deleteProduct = product => {
   return {
     type: DELETE_PRODUCT,
     payload: product
+  };
+};
+export const resetCart = () => {
+  return {
+    type: RESET_CART
   };
 };
