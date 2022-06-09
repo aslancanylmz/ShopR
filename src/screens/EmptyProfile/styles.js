@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { COLORS } from '../../constants/theme';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -7,10 +8,11 @@ const styles = StyleSheet.create({
     padding: 16
   },
   descriptionText: {
-    fontSize: 32,
+    fontSize: 24,
+    color: COLORS.secondaryTextColor,
     textAlign: 'center',
-    fontWeight: '800',
-    margin: 16
+    fontWeight: '600',
+    marginBottom: 32
   }
 });
 
