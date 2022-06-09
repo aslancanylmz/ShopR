@@ -42,7 +42,8 @@ export const styles = StyleSheet.create({
   },
   productInfoContainer: {
     marginLeft: 16,
-    marginTop: 16
+    marginTop: 16,
+    alignItems: 'flex-start'
   },
   crossIcon: {
     position: 'absolute',

@@ -18,7 +18,7 @@ const iconNames = {
 };
 const Icon = ({ iconName, style, onPress, width, height, color }) => {
   switch (iconName) {
-    case 'Success':
+    case iconNames.Success:
       return (
         <TouchableOpacity onPress={onPress} disabled={!onPress} style={style}>
           <Svg width={width ?? '60'} height={height ?? '60'} viewBox='0 0 60 60' fill='none'>
@@ -29,7 +29,7 @@ const Icon = ({ iconName, style, onPress, width, height, color }) => {
           </Svg>
         </TouchableOpacity>
       );
-    case 'Profile':
+    case iconNames.Profile:
       return (
         <TouchableOpacity onPress={onPress} disabled={!onPress} style={style}>
           <Svg width={width ?? '26'} height={height ?? '26'} viewBox='0 0 18 18' fill='none'>
@@ -40,7 +40,7 @@ const Icon = ({ iconName, style, onPress, width, height, color }) => {
           </Svg>
         </TouchableOpacity>
       );
-    case 'Coupon':
+    case iconNames.Coupon:
       return (
         <TouchableOpacity onPress={onPress} disabled={!onPress} style={style}>
           <Svg width={width ?? '32'} height={height ?? '32'} viewBox='0 0 20 16' fill='none'>
@@ -51,7 +51,7 @@ const Icon = ({ iconName, style, onPress, width, height, color }) => {
           </Svg>
         </TouchableOpacity>
       );
-    case 'Cart':
+    case iconNames.Cart:
       return (
         <TouchableOpacity onPress={onPress} disabled={!onPress} style={style}>
           <Svg width={width ?? '32'} height={height ?? '37'} viewBox='0 0 40 37' fill='none'>
@@ -62,7 +62,7 @@ const Icon = ({ iconName, style, onPress, width, height, color }) => {
           </Svg>
         </TouchableOpacity>
       );
-    case 'Home':
+    case iconNames.Home:
       return (
         <TouchableOpacity onPress={onPress} disabled={!onPress} style={style}>
           <Svg width={width ?? '32'} height={height ?? '25'} viewBox='0 0 40 32' fill='none'>
@@ -80,7 +80,7 @@ const Icon = ({ iconName, style, onPress, width, height, color }) => {
           </Svg>
         </TouchableOpacity>
       );
-    case 'Forward':
+    case iconNames.Forward:
       return (
         <TouchableOpacity onPress={onPress} disabled={!onPress} style={style}>
           <Svg width={width ?? '24'} height={height ?? '24'} viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/Svg'>
@@ -91,7 +91,7 @@ const Icon = ({ iconName, style, onPress, width, height, color }) => {
           </Svg>
         </TouchableOpacity>
       );
-    case 'Cross':
+    case iconNames.Cross:
       return (
         <TouchableOpacity onPress={onPress} disabled={!onPress} style={style}>
           <Svg width={width ?? '24'} height={height ?? '24'} viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
@@ -102,7 +102,7 @@ const Icon = ({ iconName, style, onPress, width, height, color }) => {
           </Svg>
         </TouchableOpacity>
       );
-    case 'Back':
+    case iconNames.Back:
       return (
         <TouchableOpacity onPress={onPress} disabled={!onPress} style={style}>
           <Svg width={width ?? '12'} height={height ?? '24'} viewBox='0 0 8 15' fill='none'>
@@ -113,7 +113,7 @@ const Icon = ({ iconName, style, onPress, width, height, color }) => {
           </Svg>
         </TouchableOpacity>
       );
-    case 'Up':
+    case iconNames.Up:
       return (
         <TouchableOpacity onPress={onPress} disabled={!onPress} style={style}>
           <Svg width={width ?? '24'} height={height ?? '12'} viewBox='0 0 15 7' fill='none'>
@@ -124,7 +124,7 @@ const Icon = ({ iconName, style, onPress, width, height, color }) => {
           </Svg>
         </TouchableOpacity>
       );
-    case 'Down':
+    case iconNames.Down:
       return (
         <TouchableOpacity onPress={onPress} disabled={!onPress} style={style}>
           <Svg width={width ?? '24'} height={height ?? '12'} viewBox='0 0 24 12' fill='none'>
@@ -135,7 +135,7 @@ const Icon = ({ iconName, style, onPress, width, height, color }) => {
           </Svg>
         </TouchableOpacity>
       );
-    case 'Share':
+    case iconNames.Share:
       return (
         <TouchableOpacity onPress={onPress} disabled={!onPress} style={style}>
           <Svg width={width ?? '24'} height={height ?? '22'} viewBox='0 0 24 22' fill='none'>
